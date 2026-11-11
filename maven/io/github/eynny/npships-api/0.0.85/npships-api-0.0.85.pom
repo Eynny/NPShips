@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.eynny</groupId>
+  <artifactId>npships-api</artifactId>
+  <version>0.0.85</version>
+  <name>NPShips API</name>
+  <description>Compile-time API for NPShips, supplied at runtime by the normal NPShips mod. Requires the Minecraft/NeoForge ModDev environment.</description>
+  <url>https://github.com/Eynny/NPShips</url>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/license/mit</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>Eynny</id>
+      <name>Eynny</name>
+      <email>eynnyme@gmail.com</email>
+      <url>https://github.com/Eynny</url>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/Eynny/NPShips.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/Eynny/NPShips.git</developerConnection>
+    <tag>v0.0.85</tag>
+    <url>https://github.com/Eynny/NPShips</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/Eynny/NPShips/issues</url>
+  </issueManagement>
+  <properties>
+    <npships.purpose>compile-only-api</npships.purpose>
+    <npships.runtimeMod>npships</npships.runtimeMod>
+    <npships.neoforge>21.1.238</npships.neoforge>
+    <npships.minecraft>1.21.1</npships.minecraft>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>net.neoforged</groupId>
+      <artifactId>neoforge</artifactId>
+      <version>21.1.238</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.joml</groupId>
+      <artifactId>joml</artifactId>
+      <version>1.10.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>24.1.0</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

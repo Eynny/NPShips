@@ -1,0 +1,130 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.eynny",
+    "module": "npships-api",
+    "version": "0.0.85",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.2.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "net.neoforged",
+          "module": "neoforge",
+          "version": {
+            "requires": "21.1.238"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.10.1"
+          }
+        },
+        {
+          "group": "org.joml",
+          "module": "joml",
+          "version": {
+            "requires": "1.10.5"
+          }
+        },
+        {
+          "group": "org.jetbrains",
+          "module": "annotations",
+          "version": {
+            "requires": "24.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "npships-api-0.0.85.jar",
+          "url": "npships-api-0.0.85.jar",
+          "size": 209380,
+          "sha512": "e4a2c23f397f20fd1331c6cdf8d83089c759a16a0c310c0670b968789db4bd26adc4ac22888a8aaf1ebc1af1fb8e86eb07eecb6bcf3843e955a1a916df9e6f44",
+          "sha256": "87926affd1144ad5073b84ee094f4f6f4de7294a2e284cbe72c23dcc14f9cc20",
+          "sha1": "8a0b7e94ce8ee136150df0cf896821eca88d8b1d",
+          "md5": "a64fbb31951732d9e39fc9b9f1ec0d75"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "npships-api-0.0.85.jar",
+          "url": "npships-api-0.0.85.jar",
+          "size": 209380,
+          "sha512": "e4a2c23f397f20fd1331c6cdf8d83089c759a16a0c310c0670b968789db4bd26adc4ac22888a8aaf1ebc1af1fb8e86eb07eecb6bcf3843e955a1a916df9e6f44",
+          "sha256": "87926affd1144ad5073b84ee094f4f6f4de7294a2e284cbe72c23dcc14f9cc20",
+          "sha1": "8a0b7e94ce8ee136150df0cf896821eca88d8b1d",
+          "md5": "a64fbb31951732d9e39fc9b9f1ec0d75"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "npships-api-0.0.85-sources.jar",
+          "url": "npships-api-0.0.85-sources.jar",
+          "size": 95717,
+          "sha512": "6512cb1136bc75dafb1c7618f40aafa7a09e1f2e4bed4ffd76e0919053b9ec6f65e4f6a1f554f3fe15a42bcefd2d170cc1ced77d445f626c2be6a82d84ffca63",
+          "sha256": "57ac9078326d9cd51def93174ebebcbdc31e233a13ba7445f67946d6653581ff",
+          "sha1": "e52a7cc2a85743d03415a30dc13dad9dfa836b4c",
+          "md5": "712faedc3d6d1ca2b2cef12e2afcf7b5"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "npships-api-0.0.85-javadoc.jar",
+          "url": "npships-api-0.0.85-javadoc.jar",
+          "size": 695941,
+          "sha512": "7771b2179e249a203670836e44b19706432dfd7e5a94d20acb19b8a8a9db57581bdc733d0f1de3c14780ee154f54bc02dfa8013e747abded94d6f0f801f98c4a",
+          "sha256": "47a5e3c64d0b89645b8365c3269624795918607efc7caba1f2a8a33528d8d38d",
+          "sha1": "dbfedcce69152b25d83fb0f0c2b08b8287c1b977",
+          "md5": "6c9d667023f67e566ae9bd6c07c8677e"
+        }
+      ]
+    }
+  ]
+}
