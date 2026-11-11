@@ -1,0 +1,71 @@
+// Exact reviewed inputs, not permission to redistribute third-party binaries.
+def integrityFile = file('gradle/dependency-integrity.json')
+def integrity = new groovy.json.JsonSlurper().parse(integrityFile)
+def localDirectory = providers.gradleProperty('npshipsLocalDependencyDir').map { file(it) }.getOrElse(file('libs'))
+ext.npshipsLocalDependencies = integrity.local.collect { new File(localDirectory, it.file) }
+
+def digestOf = { File input ->
+    def digest = java.security.MessageDigest.getInstance('SHA-256')
+    input.withInputStream { stream ->
+        byte[] buffer = new byte[1024 * 1024]
+        int count
+        while ((count = stream.read(buffer)) != -1) digest.update(buffer, 0, count)
+    }
+    digest.digest().encodeHex().toString()
+}
+
+tasks.register('verifyLocalDependencies') {
+    group = 'verification'
+    description = 'Verify exact privately provisioned Simulated/Companion inputs before compilation.'
+    inputs.file(integrityFile)
+    // Always verify: an earlier successful build must not bless a replaced local file.
+    doLast {
+        integrity.local.each { expected ->
+            def input = new File(localDirectory, expected.file)
+            if (!input.isFile() || input.length() != expected.bytes || digestOf(input) != expected.sha256) {
+                throw new GradleException("Missing or mismatched ${expected.file}. Expected ${expected.bytes} bytes, SHA-256 ${expected.sha256}. Run python scripts/ProvisionDependencies.py --help for exact inputs and provisioning; use the exact reviewed artifact, not another build of the same version.")
+            }
+            logger.lifecycle('Verified local input: {} SHA-256 {}', input, expected.sha256)
+        }
+    }
+}
+
+tasks.register('verifyDependencyIntegrity') {
+    group = 'verification'
+    description = 'Verify the reviewed direct Maven JARs and private local inputs.'
+    dependsOn('verifyLocalDependencies')
+    inputs.file(integrityFile)
+    doLast {
+        def resolved = [configurations.compileClasspath, configurations.runtimeClasspath, configurations.additionalRuntimeClasspath].collectMany {
+            it.resolvedConfiguration.resolvedArtifacts.toList()
+        }.unique { it.file.canonicalPath }
+        def found = [] as Set
+        resolved.each { artifact ->
+            def module = artifact.moduleVersion.id.toString()
+            def expected = integrity.maven.find { it.module == module }
+            def reviewedModule = integrity.maven.find {
+                it.module.substring(0, it.module.lastIndexOf(':')) == artifact.moduleVersion.id.group + ':' + artifact.moduleVersion.id.name
+            }
+            if (reviewedModule != null && expected == null) {
+                throw new GradleException("Unreviewed version ${module}; expected ${reviewedModule.module}. Update versions and integrity pins only after explicit review.")
+            }
+            if (expected != null) {
+                def actual = digestOf(artifact.file)
+                if (actual != expected.sha256) throw new GradleException("Maven input mismatch: ${module} (${artifact.file.name}), SHA-256 ${actual}, expected ${expected.sha256}")
+                found.add(module)
+                logger.lifecycle('Verified Maven input: {} SHA-256 {}', module, actual)
+            }
+        }
+        def required = integrity.maven.findAll {
+            !it.module.startsWith('maven.modrinth:jei:') && !it.module.startsWith('maven.modrinth:mezzconfig:') &&
+                !it.module.startsWith('cc.tweaked:') && !it.module.startsWith('maven.modrinth:create-radars:') &&
+                !it.module.startsWith('maven.modrinth:create-big-cannons:') && !it.module.startsWith('maven.modrinth:rpl:') &&
+                (!(it.module.startsWith('maven.modrinth:create-deep-seas:') || it.module.startsWith('maven.modrinth:sodium:') || it.module.startsWith('net.caffeinemc:sodium-neoforge-mod:')) || providers.gradleProperty('npshipsDeepSeas').getOrElse('false').toBoolean())
+        }.collect { it.module }
+        def missing = required.findAll { !found.contains(it) }
+        if (!missing.empty) throw new GradleException('Reviewed required Maven modules missing from classpaths: ' + missing)
+    }
+}
+
+tasks.named('compileJava') { dependsOn('verifyDependencyIntegrity') }
+tasks.named('check') { dependsOn('verifyDependencyIntegrity') }

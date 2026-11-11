@@ -1,0 +1,20 @@
+name: Public source checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Check source inputs (does not compile the mod)
+        run: python3 scripts/VerifySourceInputs.py

@@ -1,0 +1,158 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev'
+}
+
+// Verification coordinates only. Public namespace/version/repository require owner approval.
+group = 'org.npships.verification'
+version = '0.0.0-g2-local'
+status = 'integration'
+base.archivesName = 'npships-api'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+    withJavadocJar()
+}
+
+// One physical source owner, one compiler owner. Root excludes this exact slice.
+sourceSets.main.java {
+    srcDir(rootProject.file('src/main/java'))
+    include('com/eynny/npships/api/**')
+    include('com/eynny/npships/config/RarityParameters.java')
+    include('com/eynny/npships/config/WeatherRule.java')
+}
+
+neoForge {
+    version = rootProject.neo_version
+    parchment {
+        mappingsVersion = rootProject.parchment_mappings_version
+        minecraftVersion = rootProject.parchment_minecraft_version
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { name = 'NeoForge'; url = 'https://maven.neoforged.net/releases' }
+}
+
+dependencies {
+    // Required public signature types. Minecraft userdev/mappings remain ModDev-owned,
+    // not third-party classes copied into this artifact or a plain-Maven SDK promise.
+    compileOnlyApi "net.neoforged:neoforge:${rootProject.neo_version}"
+    compileOnlyApi 'com.google.code.gson:gson:2.10.1'
+    compileOnlyApi 'org.joml:joml:1.10.5'
+    compileOnlyApi 'org.jetbrains:annotations:24.1.0'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.sourcepath = files()
+    options.compilerArgs.add('-implicit:none')
+}
+tasks.named('javadoc', Javadoc) {
+    options.encoding = 'UTF-8'
+    options.charSet = 'UTF-8'
+    options.addBooleanOption('Xdoclint:all', true)
+    options.addBooleanOption('Werror', true)
+    options.addStringOption('Xmaxwarns', '2000')
+    doLast {
+        // Windows JDK legal files may be link stubs in the generated doclet output.
+        // Package the matching toolchain's complete, unmodified texts, never a host path pointer.
+        def jdk = javadocTool.get().metadata.installationPath.asFile
+        def legal = new File(destinationDir, 'legal')
+        ['LICENSE', 'ASSEMBLY_EXCEPTION', 'ADDITIONAL_LICENSE_INFO'].each { name ->
+            def original = new File(jdk, 'legal/java.base/' + name)
+            if (!original.isFile() || original.length() < 100)
+                throw new GradleException('Missing complete toolchain legal text: ' + name)
+            legal.mkdirs()
+            new File(legal, name).bytes = original.bytes
+        }
+        def release = new Properties()
+        new File(jdk, 'release').withInputStream { release.load(it) }
+        new File(legal, 'NPShips-toolchain-origin.txt').setText(
+            'Unmodified legal texts from the Javadoc toolchain legal/java.base.\n' +
+            'JAVA_VERSION=' + release.getProperty('JAVA_VERSION') + '\n' +
+            'IMPLEMENTOR=' + release.getProperty('IMPLEMENTOR') + '\n' +
+            'SOURCE=' + release.getProperty('SOURCE') + '\n', 'UTF-8')
+    }
+}
+tasks.named('processResources') {
+    inputs.property('apiCoordinates', "${project.group}:${project.name}:${project.version}")
+    inputs.property('minecraft', rootProject.minecraft_version)
+    inputs.property('neoforge', rootProject.neo_version)
+    filesMatching('META-INF/npships-api.properties') {
+        expand(apiCoordinates: "${project.group}:${project.name}:${project.version}",
+                minecraft: rootProject.minecraft_version, neoforge: rootProject.neo_version)
+    }
+}
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    includeEmptyDirs = false
+    from(rootProject.file('LICENSE')) { into('META-INF') }
+    from(rootProject.file('NPShipsThirdPartyNotices.md')) { into('META-INF') }
+    from(rootProject.file('TEMPLATE_LICENSE.txt')) { into('META-INF') }
+    from(rootProject.file('licenses')) { into('META-INF/licenses') }
+}
+
+// Only a build-owned local repository is configured, never mavenLocal or an external target.
+def localRepo = rootProject.layout.buildDirectory.dir('api-g2/local-maven')
+def requestedRepo = providers.gradleProperty('npshipsApiVerificationRepository')
+def verificationRepo = requestedRepo.map { rootProject.file(it) }.getOrElse(localRepo.get().asFile)
+tasks.withType(PublishToMavenRepository).configureEach {
+    doFirst {
+        def destination = repository.url
+        if (destination.scheme != 'file')
+            throw new GradleException('API verification publication requires a local file repository.')
+        def target = new File(destination).canonicalFile.toPath()
+        def build = rootProject.file('build').canonicalFile.toPath()
+        if (!target.startsWith(build) || target == build)
+            throw new GradleException('API verification publication must stay in a build-owned local directory.')
+    }
+}
+publishing {
+    publications {
+        apiVerification(MavenPublication) {
+            from components.java
+            artifactId = 'npships-api'
+            pom {
+                name = 'NPShips API local verification'
+                description = 'Compile-time API supplied at runtime by the normal NPShips mod. Local verification only; requires the declared Minecraft/NeoForge ModDev environment. No public coordinates or version freeze.'
+                licenses { license { name = 'MIT'; url = 'https://opensource.org/license/mit'; distribution = 'repo' } }
+                properties = ['npships.runtimeMod': 'npships', 'npships.minecraft': rootProject.minecraft_version,
+                    'npships.neoforge': rootProject.neo_version, 'npships.purpose': 'local-verification-compile-only']
+            }
+        }
+    }
+    repositories { maven { name = 'Verification'; url = verificationRepo.toURI() } }
+}
+// Global ~/.m2 is not a verification output and must not be written by this project.
+tasks.withType(PublishToMavenLocal).configureEach {
+    doFirst { throw new GradleException('Use the bounded build-owned Verification repository, not mavenLocal.') }
+}
+
+// Input evidence is private build output. API compilation never sees NPShips implementation.
+tasks.register('verifyApiInputs') {
+    doLast {
+        def roots = sourceSets.main.java.srcDirs.collect { it.canonicalPath }
+        def inputs = configurations.compileClasspath.files
+        inputs.each { input ->
+            if (!input.isFile() || !input.name.endsWith('.jar'))
+                throw new GradleException('API compilation requires binary platform JAR inputs: ' + input)
+            new java.util.zip.ZipFile(input).withCloseable { archive ->
+                if (archive.entries().any { it.name.startsWith('com/eynny/npships/') })
+                    throw new GradleException('API compiler must not depend on NPShips classes: ' + input)
+            }
+        }
+        def output = layout.buildDirectory.file('reports/api-inputs.json').get().asFile
+        output.parentFile.mkdirs()
+        output.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+            project: project.path, sourceRoots: roots,
+            sources: sourceSets.main.java.files.collect { it.canonicalPath }.sort(),
+            compileClasspath: inputs.collect { it.canonicalPath }.sort(),
+            sourcepath: '', runtimeImplementationDependency: false]))
+    }
+}
+tasks.named('compileJava') { dependsOn('verifyApiInputs') }

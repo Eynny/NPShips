@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "npships:block/schematic_editor"
+    },
+    "facing=east": {
+      "model": "npships:block/schematic_editor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "npships:block/schematic_editor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "npships:block/schematic_editor",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible problem with NPShips.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or Russian is welcome.
+        Before attaching logs or screenshots, remove credentials, tokens, private
+        paths, account data and sensitive world information. Do not upload a private
+        world or schematic. Share only material you have permission to disclose.
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Describe the actual result and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest repeatable example, including commands or editor actions.
+      placeholder: |
+        1. Start with...
+        2. Do...
+        3. Observe...
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Minecraft / NeoForge / NPShips versions
+      description: Use exact versions; for a local build, include its commit if known.
+      placeholder: "Minecraft: ...; NeoForge: ...; NPShips: ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Reproduction environment
+      options:
+        - Singleplayer / integrated server
+        - Dedicated server
+        - LAN / hosted multiplayer
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and system
+      description: List relevant mod versions, OS and Java; mention changed config or datapacks.
+      placeholder: "Create, Simulated, Sable, Aeronautics (optional), other integrations..."
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or screenshots
+      description: Attach sanitized latest.log / crash report and relevant screenshots, if available.

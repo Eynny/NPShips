@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "minecraft": "1.21.1",
+  "local": [
+    {
+      "file": "sable-companion-common-1.6.0.jar",
+      "bytes": 35448,
+      "sha256": "156e277a5656f71bb7e267a5c9061f6b41965bd9c51e5e47428cbd1f980a3e7f"
+    },
+    {
+      "file": "simulated-neoforge-1.21.1-1.3.2.jar",
+      "bytes": 6315366,
+      "sha256": "fdf9d250996a084b52fced3a5b0089e879a5cac05dc7bcf295ac1f4ebe5e2bff"
+    }
+  ],
+  "maven": [
+    {
+      "module": "com.simibubi.create:create-1.21.1:6.0.10-280",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
+    },
+    {
+      "module": "net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc"
+    },
+    {
+      "module": "dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1:1.0.6",
+      "sha256": "a79565dee7160fedd48de4899e0d21c845a8933b0413020e0a3ff65d0bec0308"
+    },
+    {
+      "module": "dev.engine-room.flywheel:flywheel-neoforge-1.21.1:1.0.6",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "module": "com.tterrag.registrate:Registrate:MC1.21-1.3.0+67",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52"
+    },
+    {
+      "module": "cc.tweaked:cc-tweaked-1.21.1-forge:1.120.2",
+      "sha256": "e8651fe24b384e925e563c9ad077644744474e2e7c0adb8e6d5b4757598dce9f"
+    },
+    {
+      "module": "maven.modrinth:create-radars:AntNFNAx",
+      "sha256": "4554359fee389b1c255b4cef23ac41e978b2a371cec9e952185f4ec0a90ee930"
+    },
+    {
+      "module": "maven.modrinth:create-big-cannons:bOiDu0LS",
+      "sha256": "ea017ab94637032d039899d88404838d173fa0e6286657cae6a6c3af459e87ca"
+    },
+    {
+      "module": "maven.modrinth:rpl:hZ6B2Z0x",
+      "sha256": "cc509060833736fb650aa4c36b1ce33a7eeeb9ca6e9f8e80a7c951c9e7487b24"
+    },
+    {
+      "module": "maven.modrinth:sable:fg9dTRz9",
+      "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2"
+    },
+    {
+      "module": "maven.modrinth:create-aeronautics:44pLdPGg",
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e"
+    },
+    {
+      "module": "maven.modrinth:create-deep-seas:dbrSfQ3m",
+      "sha256": "9fb3248c3133825fe2900890c47e3b7fb40f0a49763459d94f223247ac85a299"
+    },
+    {
+      "module": "maven.modrinth:sodium:7XOIgnrf",
+      "sha256": "21f46a795137d7049a6736cea1e56837c633da532dd9fcb178363a8df771a4ea"
+    },
+    {
+      "module": "maven.modrinth:jei:iv3KiVkE",
+      "sha256": "f7a9de3d7ee07eed8d293a1a1a0f6afaac556eb43c103523457bd07ebb551e7b"
+    },
+    {
+      "module": "maven.modrinth:mezzconfig:sL7Ghaz1",
+      "sha256": "6f596cec9b531dd386ad6342c3deb5b27de4b4a4754ce30835f8ecc2e75f8703"
+    },
+    {
+      "module": "net.caffeinemc:sodium-neoforge-mod:0.8.12-beta.2+mc1.21.1",
+      "sha256": "357e2668180e71e4ccc948f084bba723444161a428f0b3939acaad1503407ca9"
+    }
+  ],
+  "wrapperSha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172"
+}

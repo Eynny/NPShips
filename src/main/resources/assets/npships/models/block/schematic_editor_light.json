@@ -1,0 +1,8352 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "gui_light": "side",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "0": "npships:block/schematic_editor",
+    "1": "npships:block/schematic_editor_scheme",
+    "particle": "npships:block/schematic_editor"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -135,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        -135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ]
+    }
+  },
+  "elements": [
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        2.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        3.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.5,
+            0.0,
+            0.75,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "02ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        3.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        4.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.75,
+            0.0,
+            1.0,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "03ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        4.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        5.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.0,
+            0.0,
+            1.25,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "04ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        5.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        6.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.25,
+            0.0,
+            1.5,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "05ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        6.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        7.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.5,
+            0.0,
+            1.75,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "06ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        7.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        8.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.75,
+            0.0,
+            2.0,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "07ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        8.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        9.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.0,
+            0.0,
+            2.25,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        9.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        10.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.25,
+            0.0,
+            2.5,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        10.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        11.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            0.0,
+            2.75,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        11.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        12.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.75,
+            0.0,
+            3.0,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        12.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        13.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.0,
+            0.0,
+            3.25,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        13.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        14.0,
+        10.002,
+        2.3826834323650896
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.25,
+            0.0,
+            3.5,
+            0.0956708580912724
+          ],
+          "neoforge_data": {
+            "color": "07ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            0.0,
+            3.75,
+            0.25
+          ],
+          "neoforge_data": {
+            "color": "06ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        2.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            0.0,
+            4.0,
+            0.25
+          ],
+          "neoforge_data": {
+            "color": "05ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        3.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            0.25,
+            0.5,
+            0.5
+          ],
+          "neoforge_data": {
+            "color": "02ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        3.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            0.25,
+            3.75,
+            0.5
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        3.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            0.25,
+            4.0,
+            0.5
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        4.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "neoforge_data": {
+            "color": "02ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        4.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            0.5,
+            0.5,
+            0.75
+          ],
+          "neoforge_data": {
+            "color": "03ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        4.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            0.5,
+            3.75,
+            0.75
+          ],
+          "neoforge_data": {
+            "color": "0fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        4.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            0.5,
+            4.0,
+            0.75
+          ],
+          "neoforge_data": {
+            "color": "0cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        5.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            0.75,
+            0.25,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "03ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        5.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            0.75,
+            0.5,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "04ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        5.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            0.75,
+            3.75,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "16ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        5.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            0.75,
+            4.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "11ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        6.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            1.0,
+            0.25,
+            1.25
+          ],
+          "neoforge_data": {
+            "color": "04ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        6.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            1.0,
+            0.5,
+            1.25
+          ],
+          "neoforge_data": {
+            "color": "06ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        6.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            1.0,
+            3.75,
+            1.25
+          ],
+          "neoforge_data": {
+            "color": "1fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        6.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            1.0,
+            4.0,
+            1.25
+          ],
+          "neoforge_data": {
+            "color": "19ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        7.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            1.25,
+            0.25,
+            1.5
+          ],
+          "neoforge_data": {
+            "color": "05ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        7.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            1.25,
+            0.5,
+            1.5
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        7.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            1.25,
+            3.75,
+            1.5
+          ],
+          "neoforge_data": {
+            "color": "2affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        7.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            1.25,
+            4.0,
+            1.5
+          ],
+          "neoforge_data": {
+            "color": "22ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        8.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            1.5,
+            0.25,
+            1.75
+          ],
+          "neoforge_data": {
+            "color": "07ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        8.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            1.5,
+            0.5,
+            1.75
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        8.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            1.5,
+            3.75,
+            1.75
+          ],
+          "neoforge_data": {
+            "color": "37ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        8.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            1.5,
+            4.0,
+            1.75
+          ],
+          "neoforge_data": {
+            "color": "2cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        9.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            1.75,
+            0.25,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        9.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            1.75,
+            0.5,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        9.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            1.75,
+            3.75,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "45ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        9.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            1.75,
+            4.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "37ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        10.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            2.0,
+            0.25,
+            2.25
+          ],
+          "neoforge_data": {
+            "color": "0affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        10.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            2.0,
+            0.5,
+            2.25
+          ],
+          "neoforge_data": {
+            "color": "10ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        10.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            2.0,
+            3.75,
+            2.25
+          ],
+          "neoforge_data": {
+            "color": "52ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        10.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            2.0,
+            4.0,
+            2.25
+          ],
+          "neoforge_data": {
+            "color": "42ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        11.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            2.25,
+            0.25,
+            2.5
+          ],
+          "neoforge_data": {
+            "color": "0cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        11.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            2.25,
+            0.5,
+            2.5
+          ],
+          "neoforge_data": {
+            "color": "13ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        11.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            2.25,
+            3.75,
+            2.5
+          ],
+          "neoforge_data": {
+            "color": "5fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        11.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            2.25,
+            4.0,
+            2.5
+          ],
+          "neoforge_data": {
+            "color": "4cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        12.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            2.5,
+            0.25,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "0dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        12.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            2.5,
+            0.5,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "15ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        2.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        3.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.5,
+            2.6052379439003994,
+            0.75,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "1fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        3.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        4.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.75,
+            2.6052379439003994,
+            1.0,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "2effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        4.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        5.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.0,
+            2.6052379439003994,
+            1.25,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "3fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        5.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        6.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.25,
+            2.6052379439003994,
+            1.5,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "53ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        6.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        7.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.5,
+            2.6052379439003994,
+            1.75,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "68ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        7.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        8.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.75,
+            2.6052379439003994,
+            2.0,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "7cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        8.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        9.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.0,
+            2.6052379439003994,
+            2.25,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "8dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        9.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        10.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.25,
+            2.6052379439003994,
+            2.5,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "98ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        10.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        11.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            2.6052379439003994,
+            2.75,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "9bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        11.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        12.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.75,
+            2.6052379439003994,
+            3.0,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "98ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        12.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        13.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.0,
+            2.6052379439003994,
+            3.25,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "8dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        13.0,
+        10.002,
+        12.420951775601598
+      ],
+      "to": [
+        14.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.25,
+            2.6052379439003994,
+            3.5,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "7cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        12.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            2.5,
+            3.75,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "68ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        12.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        13.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            2.5,
+            4.0,
+            2.75
+          ],
+          "neoforge_data": {
+            "color": "53ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        0.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        1.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.0,
+            2.75,
+            0.25,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "0dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        1.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        2.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.25,
+            2.75,
+            0.5,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "16ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        2.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        3.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.5,
+            2.75,
+            0.75,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "21ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        3.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        4.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            0.75,
+            2.75,
+            1.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "30ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        4.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        5.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.0,
+            2.75,
+            1.25,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "43ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        5.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        6.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.25,
+            2.75,
+            1.5,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "58ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        6.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        7.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.5,
+            2.75,
+            1.75,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "6effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        7.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        8.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            1.75,
+            2.75,
+            2.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "83ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        8.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        9.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.0,
+            2.75,
+            2.25,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "94ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        9.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        10.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.25,
+            2.75,
+            2.5,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "a0ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        10.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        11.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            2.75,
+            2.75,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "a4ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        11.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        12.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            2.75,
+            2.75,
+            3.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "a0ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        12.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        13.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.0,
+            2.75,
+            3.25,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "94ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        13.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        14.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.25,
+            2.75,
+            3.5,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "83ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        14.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        15.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.5,
+            2.75,
+            3.75,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "6effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "tabletop_lamp_pool",
+      "from": [
+        15.0,
+        10.002,
+        13.0
+      ],
+      "to": [
+        16.0,
+        10.002,
+        14.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0,
+          9,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3.75,
+            2.75,
+            4.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "58ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        3.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            0.961731656763491,
+            1.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "02ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        4.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            0.961731656763491,
+            2.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "03ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        5.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            0.961731656763491,
+            3.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "04ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        6.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            0.961731656763491,
+            4.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "06ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        7.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            0.961731656763491,
+            5.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "07ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        8.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            0.961731656763491,
+            6.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        9.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            0.961731656763491,
+            7.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "0affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        10.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            0.961731656763491,
+            8.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "0affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        11.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            0.961731656763491,
+            9.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        12.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            0.961731656763491,
+            10.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "0affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        13.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            0.961731656763491,
+            11.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "0affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        2.961731656763491
+      ],
+      "to": [
+        14.0,
+        10.102,
+        3.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            0.961731656763491,
+            12.0,
+            1.0
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "03ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            1.0,
+            2.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "05ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            1.0,
+            3.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "07ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            1.0,
+            4.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "09ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            1.0,
+            5.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            1.0,
+            6.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            1.0,
+            7.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            1.0,
+            8.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "11ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            1.0,
+            9.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "11ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            1.0,
+            10.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "11ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            1.0,
+            11.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        3.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        4.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            1.0,
+            12.0,
+            2.0
+          ],
+          "neoforge_data": {
+            "color": "0effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "05ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            2.0,
+            2.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            2.0,
+            4.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "0effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            2.0,
+            5.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "11ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            2.0,
+            6.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "15ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            2.0,
+            7.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "17ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            2.0,
+            8.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "19ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            2.0,
+            9.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "1affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            2.0,
+            10.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "19ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            2.0,
+            11.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "17ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        4.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        5.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            2.0,
+            12.0,
+            3.0
+          ],
+          "neoforge_data": {
+            "color": "15ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            3.0,
+            1.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "08ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            3.0,
+            2.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "0fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            3.0,
+            4.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "14ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            3.0,
+            5.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "19ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            3.0,
+            6.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "1effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            3.0,
+            7.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "22ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            3.0,
+            8.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "25ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            3.0,
+            9.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "26ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            3.0,
+            10.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "25ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            3.0,
+            11.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "22ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        5.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        6.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            3.0,
+            12.0,
+            4.0
+          ],
+          "neoforge_data": {
+            "color": "1effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            4.0,
+            1.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "0bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            4.0,
+            2.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "10ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            4.0,
+            3.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "15ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            4.0,
+            4.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "1cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            4.0,
+            5.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "23ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            4.0,
+            6.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "2affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            4.0,
+            7.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "30ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            4.0,
+            8.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "33ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            4.0,
+            9.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "35ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            4.0,
+            10.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "33ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            4.0,
+            11.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "30ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        6.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        7.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            4.0,
+            12.0,
+            5.0
+          ],
+          "neoforge_data": {
+            "color": "2affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "0effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            5.0,
+            2.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "15ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            5.0,
+            3.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "1dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            5.0,
+            4.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "26ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            5.0,
+            5.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "2fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            5.0,
+            6.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "38ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            5.0,
+            7.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "40ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            5.0,
+            8.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "45ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            5.0,
+            9.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "47ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            5.0,
+            10.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "45ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            5.0,
+            11.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "40ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        7.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        8.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            5.0,
+            12.0,
+            6.0
+          ],
+          "neoforge_data": {
+            "color": "38ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            6.0,
+            1.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "12ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            6.0,
+            2.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "1bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            6.0,
+            3.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "25ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            6.0,
+            4.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "30ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            6.0,
+            5.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "3dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            6.0,
+            6.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "48ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            6.0,
+            7.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "52ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            6.0,
+            8.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "58ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            6.0,
+            9.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "5bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            6.0,
+            10.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "58ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            6.0,
+            11.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "52ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        8.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        9.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            6.0,
+            12.0,
+            7.0
+          ],
+          "neoforge_data": {
+            "color": "48ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            7.0,
+            1.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "16ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            7.0,
+            2.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "21ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            7.0,
+            3.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "2dffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            7.0,
+            4.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "3cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            7.0,
+            5.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "4bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            7.0,
+            6.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "59ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            7.0,
+            7.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "65ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "6cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            7.0,
+            9.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "6fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            7.0,
+            10.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "6cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            7.0,
+            11.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "65ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        9.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        10.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            7.0,
+            12.0,
+            8.0
+          ],
+          "neoforge_data": {
+            "color": "59ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            8.0,
+            1.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "1affffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            8.0,
+            2.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "26ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            8.0,
+            3.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "35ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            8.0,
+            4.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "46ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            8.0,
+            5.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "58ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            8.0,
+            6.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "69ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            8.0,
+            7.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "76ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            8.0,
+            8.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "80ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            8.0,
+            9.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "83ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            8.0,
+            10.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "80ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            8.0,
+            11.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "76ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        10.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        11.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            8.0,
+            12.0,
+            9.0
+          ],
+          "neoforge_data": {
+            "color": "69ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        2.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        3.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            0.0,
+            9.0,
+            1.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "1effffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        3.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        4.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            1.0,
+            9.0,
+            2.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "2bffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        4.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        5.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            2.0,
+            9.0,
+            3.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "3cffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        5.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        6.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            3.0,
+            9.0,
+            4.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "4fffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        6.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        7.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            4.0,
+            9.0,
+            5.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "63ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        7.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        8.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            5.0,
+            9.0,
+            6.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "76ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        8.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        9.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            6.0,
+            9.0,
+            7.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "86ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        9.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        10.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            7.0,
+            9.0,
+            8.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "90ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        10.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        11.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            8.0,
+            9.0,
+            9.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "94ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        11.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        12.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            9.0,
+            9.0,
+            10.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "90ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        12.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        13.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            10.0,
+            9.0,
+            11.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "86ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "scheme_lamp_pool",
+      "from": [
+        13.0,
+        10.102,
+        11.0
+      ],
+      "to": [
+        14.0,
+        10.102,
+        12.0
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2,
+          10.1,
+          2
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": false
+      },
+      "faces": {
+        "up": {
+          "texture": "#1",
+          "uv": [
+            11.0,
+            9.0,
+            12.0,
+            10.0
+          ],
+          "neoforge_data": {
+            "color": "76ffffff",
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "npships:block/claim_block",
+  "transform": {
+    "rotation": [
+      0,
+      90,
+      0
+    ],
+    "origin": "center"
+  }
+}

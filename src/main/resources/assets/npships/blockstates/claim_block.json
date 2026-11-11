@@ -1,0 +1,108 @@
+{
+  "variants": {
+    "facing=up,turn=0": {
+      "model": "npships:block/claim_block"
+    },
+    "facing=up,turn=1": {
+      "model": "npships:block/claim_block_turn_1"
+    },
+    "facing=up,turn=2": {
+      "model": "npships:block/claim_block_turn_2"
+    },
+    "facing=up,turn=3": {
+      "model": "npships:block/claim_block_turn_3"
+    },
+    "facing=down,turn=0": {
+      "model": "npships:block/claim_block",
+      "x": 180
+    },
+    "facing=down,turn=1": {
+      "model": "npships:block/claim_block_turn_1",
+      "x": 180
+    },
+    "facing=down,turn=2": {
+      "model": "npships:block/claim_block_turn_2",
+      "x": 180
+    },
+    "facing=down,turn=3": {
+      "model": "npships:block/claim_block_turn_3",
+      "x": 180
+    },
+    "facing=south,turn=0": {
+      "model": "npships:block/claim_block",
+      "x": 270
+    },
+    "facing=south,turn=1": {
+      "model": "npships:block/claim_block_turn_1",
+      "x": 270
+    },
+    "facing=south,turn=2": {
+      "model": "npships:block/claim_block_turn_2",
+      "x": 270
+    },
+    "facing=south,turn=3": {
+      "model": "npships:block/claim_block_turn_3",
+      "x": 270
+    },
+    "facing=north,turn=0": {
+      "model": "npships:block/claim_block",
+      "x": 270,
+      "y": 180
+    },
+    "facing=north,turn=1": {
+      "model": "npships:block/claim_block_turn_1",
+      "x": 270,
+      "y": 180
+    },
+    "facing=north,turn=2": {
+      "model": "npships:block/claim_block_turn_2",
+      "x": 270,
+      "y": 180
+    },
+    "facing=north,turn=3": {
+      "model": "npships:block/claim_block_turn_3",
+      "x": 270,
+      "y": 180
+    },
+    "facing=west,turn=0": {
+      "model": "npships:block/claim_block",
+      "x": 270,
+      "y": 90
+    },
+    "facing=west,turn=1": {
+      "model": "npships:block/claim_block_turn_1",
+      "x": 270,
+      "y": 90
+    },
+    "facing=west,turn=2": {
+      "model": "npships:block/claim_block_turn_2",
+      "x": 270,
+      "y": 90
+    },
+    "facing=west,turn=3": {
+      "model": "npships:block/claim_block_turn_3",
+      "x": 270,
+      "y": 90
+    },
+    "facing=east,turn=0": {
+      "model": "npships:block/claim_block",
+      "x": 270,
+      "y": 270
+    },
+    "facing=east,turn=1": {
+      "model": "npships:block/claim_block_turn_1",
+      "x": 270,
+      "y": 270
+    },
+    "facing=east,turn=2": {
+      "model": "npships:block/claim_block_turn_2",
+      "x": 270,
+      "y": 270
+    },
+    "facing=east,turn=3": {
+      "model": "npships:block/claim_block_turn_3",
+      "x": 270,
+      "y": 270
+    }
+  }
+}

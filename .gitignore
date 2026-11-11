@@ -1,0 +1,57 @@
+### Gradle ###
+# Provisioned third-party inputs are not source files.
+/libs/*.jar
+__pycache__/
+
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/**/build/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/**/out/
+
+.run/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.eclipse/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/**/bin/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Minecraft Modding ###
+run/
+!**/src/**/run/
+**/src/generated/**/.cache/
+repo/
+!**/src/**/repo/
+
+# Local runtime, diagnostics and provisioned inputs.
+/run-*/
+/logs/
+/crash-reports/
+/screenshots/
+/saves/
+/config/
+/defaultconfigs/
+/evidence/
+/hs_err_pid*.log
+/replay_pid*.log
+*.local.properties

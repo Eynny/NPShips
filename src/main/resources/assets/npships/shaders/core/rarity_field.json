@@ -1,0 +1,68 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "srcalpha",
+    "dstrgb": "1-srcalpha",
+    "srcalpha": "1",
+    "dstalpha": "1-srcalpha"
+  },
+  "vertex": "npships:rarity_field",
+  "fragment": "npships:rarity_field",
+  "attributes": [
+    "Position"
+  ],
+  "uniforms": [
+    {
+      "name": "Fields",
+      "type": "float",
+      "count": 320,
+      "values": [
+        0
+      ]
+    },
+    {
+      "name": "FieldCount",
+      "type": "int",
+      "count": 1,
+      "values": [
+        0
+      ]
+    },
+    {
+      "name": "InverseViewProjection",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "MaximumPressure",
+      "type": "float",
+      "count": 1,
+      "values": [
+        2
+      ]
+    }
+  ],
+  "samplers": [
+    {
+      "name": "SceneDepth"
+    }
+  ]
+}

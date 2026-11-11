@@ -1,0 +1,55 @@
+name: Compatibility issue
+description: Report an observed interaction with another mod.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A compatibility report is a reproduction request, not a promise to support
+        every integration. English or Russian is welcome.
+        Remove credentials, tokens, private paths, account data and sensitive world
+        information from attachments. Do not upload private worlds, schematics or
+        third-party binaries.
+  - type: input
+    id: other_mod
+    attributes:
+      label: Other mod name and exact version
+      description: Include any separate compatibility addon involved.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed failure and expected behavior
+      description: Identify the specific block, entity, editor action or spawn operation involved.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Give concrete steps and the smallest mod/config setup that still shows the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Platform, dependencies and environment
+      description: Include exact Minecraft, NeoForge, NPShips and relevant native mod versions, plus singleplayer/server, OS and Java.
+    validations:
+      required: true
+  - type: dropdown
+    id: isolation
+    attributes:
+      label: Does it reproduce without unrelated optional integrations?
+      description: Keep NPShips required dependencies and the affected mod's own dependencies. Use a disposable test world.
+      options:
+        - Not tested
+        - 'Yes'
+        - 'No'
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs and additional evidence
+      description: Attach sanitized logs or screenshots; describe what changed in the isolation test.

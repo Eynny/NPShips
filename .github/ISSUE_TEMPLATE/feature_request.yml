@@ -1,0 +1,29 @@
+name: Feature request
+description: Explain a problem that a proposed improvement would solve.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggestions are reviewed in context; submission does not promise
+        implementation or a response time. English or Russian is welcome.
+        Do not include credentials, private paths, account data or sensitive world
+        information. Share only examples you have permission to disclose.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe your workflow and which existing behavior is insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior
+      description: Explain the result you want and a concrete example of using it.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or current workaround
+      description: Optional context, limitations or other approaches you considered.
