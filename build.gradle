@@ -29,6 +29,16 @@ sourceSets.main.resources {
 
 repositories {
 
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'SableCompanion'
+                url = 'https://maven.ryanhcode.dev/releases'
+            }
+        }
+        filter { includeGroup 'dev.ryanhcode.sable-companion' }
+    }
+
     maven {
         url = "https://maven.squiddev.cc"
         content { includeGroup "cc.tweaked" }
@@ -216,11 +226,14 @@ dependencies {
     compileOnly('maven.modrinth:create-aeronautics:44pLdPGg') { transitive = false }
     if (providers.gradleProperty('npshipsAeronautics').getOrElse('true').toBoolean()) {
         localRuntime('maven.modrinth:create-aeronautics:44pLdPGg') { transitive = false }
-        runtimeOnly files(npshipsLocalDependencies.findAll { it.name.startsWith('simulated-') })
+        runtimeOnly npshipsSimulatedDependency
     }
-    // Exact Simulated/Companion compile inputs still require explicit provisioning.
-    implementation files(npshipsLocalDependencies.findAll { !it.name.startsWith('simulated-') })
-    compileOnly files(npshipsLocalDependencies.findAll { it.name.startsWith('simulated-') })
+    // Sable supplies the identical official Companion at runtime. No standalone copy is added.
+    // Both upstream library variants use this exact JAR; integrity verification checks its bytes.
+    compileOnly('dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:1.6.0') { transitive = false }
+    // Preserve the reviewed Simulated bytes from the pinned official bundle, not the
+    // different same-version standalone release and its higher NeoForge requirement.
+    compileOnly npshipsSimulatedDependency
 
 
     implementation(

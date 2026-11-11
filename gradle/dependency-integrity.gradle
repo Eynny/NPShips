@@ -1,8 +1,10 @@
 // Exact reviewed inputs, not permission to redistribute third-party binaries.
+
 def integrityFile = file('gradle/dependency-integrity.json')
 def integrity = new groovy.json.JsonSlurper().parse(integrityFile)
-def localDirectory = providers.gradleProperty('npshipsLocalDependencyDir').map { file(it) }.getOrElse(file('libs'))
-ext.npshipsLocalDependencies = integrity.local.collect { new File(localDirectory, it.file) }
+def simulated = integrity.generated.simulated
+def bundlePin = integrity.maven.find { it.module == simulated.sourceModule }
+if (bundlePin == null) throw new GradleException('Missing reviewed source bundle pin for generated Simulated input.')
 
 def digestOf = { File input ->
     def digest = java.security.MessageDigest.getInstance('SHA-256')
@@ -14,29 +16,78 @@ def digestOf = { File input ->
     digest.digest().encodeHex().toString()
 }
 
-tasks.register('verifyLocalDependencies') {
-    group = 'verification'
-    description = 'Verify exact privately provisioned Simulated/Companion inputs before compilation.'
-    inputs.file(integrityFile)
-    // Always verify: an earlier successful build must not bless a replaced local file.
-    doLast {
-        integrity.local.each { expected ->
-            def input = new File(localDirectory, expected.file)
-            if (!input.isFile() || input.length() != expected.bytes || digestOf(input) != expected.sha256) {
-                throw new GradleException("Missing or mismatched ${expected.file}. Expected ${expected.bytes} bytes, SHA-256 ${expected.sha256}. Run python scripts/ProvisionDependencies.py --help for exact inputs and provisioning; use the exact reviewed artifact, not another build of the same version.")
-            }
-            logger.lifecycle('Verified local input: {} SHA-256 {}', input, expected.sha256)
-        }
+def verifyInput = { File input, expected, String label ->
+    if (!input.isFile()) throw new GradleException("Missing ${label}: ${input}")
+    if (expected.bytes != null && input.length() != expected.bytes) {
+        throw new GradleException("Size mismatch for ${label}: ${input.length()} bytes, expected ${expected.bytes}.")
+    }
+    def actual = digestOf(input)
+    if (actual != expected.sha256) {
+        throw new GradleException("SHA-256 mismatch for ${label}: ${actual}, expected ${expected.sha256}. Use the exact reviewed public artifact, not another build of the same version.")
     }
 }
 
-tasks.register('verifyDependencyIntegrity') {
-    group = 'verification'
-    description = 'Verify the reviewed direct Maven JARs and private local inputs.'
-    dependsOn('verifyLocalDependencies')
-    inputs.file(integrityFile)
+// This configuration obtains an input archive only. It never extends a runtime classpath.
+def bundleInput = configurations.create('npshipsAeronauticsBundleInput') {
+    canBeConsumed = false
+    canBeResolved = true
+    transitive = false
+    visible = false
+    description = 'Pinned official archive containing the reviewed Simulated compile input.'
+}
+dependencies.add(bundleInput.name, simulated.sourceModule) { transitive = false }
+
+def simulatedOutput = layout.buildDirectory.file('generated/dependency-inputs/' + simulated.file)
+def prepareSimulated = tasks.register('prepareSimulatedDependency') {
+    group = 'build setup'
+    description = 'Extract and verify the exact reviewed Simulated JAR from the official pinned bundle.'
+    inputs.files(bundleInput).withPropertyName('aeronauticsBundle').withPathSensitivity(PathSensitivity.NONE)
+    inputs.properties([
+        sourceModule: simulated.sourceModule,
+        sourceEntry: simulated.sourceEntry,
+        sourceSha256: bundlePin.sha256,
+        sourceBytes: bundlePin.bytes,
+        outputSha256: simulated.sha256,
+        outputBytes: simulated.bytes
+    ])
+    outputs.file(simulatedOutput).withPropertyName('simulatedJar')
     doLast {
-        def resolved = [configurations.compileClasspath, configurations.runtimeClasspath, configurations.additionalRuntimeClasspath].collectMany {
+        def bundle = bundleInput.singleFile
+        verifyInput(bundle, bundlePin, simulated.sourceModule)
+        def staged = new File(temporaryDir, simulated.file)
+        staged.parentFile.mkdirs()
+        new java.util.zip.ZipFile(bundle).withCloseable { archive ->
+            def entry = archive.getEntry(simulated.sourceEntry)
+            if (entry == null || entry.directory || entry.size != simulated.bytes) {
+                throw new GradleException("Missing or mismatched nested Simulated entry: ${simulated.sourceEntry}")
+            }
+            archive.getInputStream(entry).withCloseable { stream ->
+                staged.withOutputStream { output -> output << stream }
+            }
+        }
+        verifyInput(staged, simulated, 'nested Simulated input')
+        def output = simulatedOutput.get().asFile
+        output.parentFile.mkdirs()
+        java.nio.file.Files.move(staged.toPath(), output.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+        logger.lifecycle('Prepared reviewed Simulated input: {} SHA-256 {}', output, simulated.sha256)
+    }
+}
+
+// FileCollection retains the producer dependency for compilation, Javadoc, IDE and dev runtime.
+ext.npshipsSimulatedDependency = files(simulatedOutput).builtBy(prepareSimulated)
+
+def verifyIntegrity = tasks.register('verifyDependencyIntegrity') {
+    group = 'verification'
+    description = 'Verify reviewed public Maven artifacts and the generated Simulated input.'
+    dependsOn(prepareSimulated)
+    inputs.file(integrityFile)
+    // No outputs: recheck the current source and generated bytes on every invocation,
+    // even if extraction and compilation are otherwise UP-TO-DATE.
+    doLast {
+        verifyInput(bundleInput.singleFile, bundlePin, simulated.sourceModule)
+        verifyInput(simulatedOutput.get().asFile, simulated, 'generated Simulated input')
+        def resolved = [configurations.compileClasspath, configurations.runtimeClasspath,
+                        configurations.additionalRuntimeClasspath, bundleInput].collectMany {
             it.resolvedConfiguration.resolvedArtifacts.toList()
         }.unique { it.file.canonicalPath }
         def found = [] as Set
@@ -50,10 +101,9 @@ tasks.register('verifyDependencyIntegrity') {
                 throw new GradleException("Unreviewed version ${module}; expected ${reviewedModule.module}. Update versions and integrity pins only after explicit review.")
             }
             if (expected != null) {
-                def actual = digestOf(artifact.file)
-                if (actual != expected.sha256) throw new GradleException("Maven input mismatch: ${module} (${artifact.file.name}), SHA-256 ${actual}, expected ${expected.sha256}")
+                verifyInput(artifact.file, expected, module)
                 found.add(module)
-                logger.lifecycle('Verified Maven input: {} SHA-256 {}', module, actual)
+                logger.lifecycle('Verified Maven input: {} SHA-256 {}', module, expected.sha256)
             }
         }
         def required = integrity.maven.findAll {
@@ -67,5 +117,6 @@ tasks.register('verifyDependencyIntegrity') {
     }
 }
 
-tasks.named('compileJava') { dependsOn('verifyDependencyIntegrity') }
-tasks.named('check') { dependsOn('verifyDependencyIntegrity') }
+tasks.withType(JavaCompile).configureEach { dependsOn(verifyIntegrity) }
+tasks.withType(Javadoc).configureEach { dependsOn(verifyIntegrity) }
+tasks.named('check') { dependsOn(verifyIntegrity) }

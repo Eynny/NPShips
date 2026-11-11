@@ -1,5 +1,6 @@
 name: Compatibility issue
 description: Report an observed interaction with another mod.
+labels: ["compatibility"]
 body:
   - type: markdown
     attributes:

@@ -19,4 +19,4 @@ en = json.loads((root / 'src/main/resources/assets/npships/lang/en_us.json').rea
 ru = json.loads((root / 'src/main/resources/assets/npships/lang/ru_ru.json').read_text(encoding='utf8'))
 assert en.keys() == ru.keys(), 'EN/RU key mismatch'
 print('PASS: wrapper hash, distribution checksum, standard MIT, MDK notice, EN/RU (' + str(len(en)) + ' keys).')
-print('SOURCE CHECK ONLY: provisioned production build and Minecraft tests are separate gates.')
+print('SOURCE CHECK ONLY: production build and Minecraft tests are separate gates.')

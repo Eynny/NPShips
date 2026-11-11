@@ -4,10 +4,10 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
-// Verification coordinates only. Public namespace/version/repository require owner approval.
-group = 'org.npships.verification'
-version = '0.0.0-g2-local'
-status = 'integration'
+// Public compile-time API; the normal NPShips mod supplies the runtime classes.
+group = 'io.github.eynny'
+version = '0.0.85'
+status = 'release'
 base.archivesName = 'npships-api'
 
 java {
@@ -118,11 +118,15 @@ publishing {
             from components.java
             artifactId = 'npships-api'
             pom {
-                name = 'NPShips API local verification'
-                description = 'Compile-time API supplied at runtime by the normal NPShips mod. Local verification only; requires the declared Minecraft/NeoForge ModDev environment. No public coordinates or version freeze.'
+                name = 'NPShips API'
+                description = 'Compile-time API for NPShips, supplied at runtime by the normal NPShips mod. Requires the Minecraft/NeoForge ModDev environment.'
+                url = 'https://github.com/Eynny/NPShips'
+                developers { developer { id = 'Eynny'; name = 'Eynny'; email = 'eynnyme@gmail.com'; url = 'https://github.com/Eynny' } }
+                scm { url = 'https://github.com/Eynny/NPShips'; connection = 'scm:git:https://github.com/Eynny/NPShips.git'; developerConnection = 'scm:git:ssh://git@github.com/Eynny/NPShips.git'; tag = 'v0.0.85' }
+                issueManagement { system = 'GitHub'; url = 'https://github.com/Eynny/NPShips/issues' }
                 licenses { license { name = 'MIT'; url = 'https://opensource.org/license/mit'; distribution = 'repo' } }
                 properties = ['npships.runtimeMod': 'npships', 'npships.minecraft': rootProject.minecraft_version,
-                    'npships.neoforge': rootProject.neo_version, 'npships.purpose': 'local-verification-compile-only']
+                    'npships.neoforge': rootProject.neo_version, 'npships.purpose': 'compile-only-api']
             }
         }
     }

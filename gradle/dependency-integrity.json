@@ -1,19 +1,12 @@
 {
-  "schema": 1,
+  "schema": 2,
   "minecraft": "1.21.1",
-  "local": [
-    {
-      "file": "sable-companion-common-1.6.0.jar",
-      "bytes": 35448,
-      "sha256": "156e277a5656f71bb7e267a5c9061f6b41965bd9c51e5e47428cbd1f980a3e7f"
-    },
-    {
-      "file": "simulated-neoforge-1.21.1-1.3.2.jar",
-      "bytes": 6315366,
-      "sha256": "fdf9d250996a084b52fced3a5b0089e879a5cac05dc7bcf295ac1f4ebe5e2bff"
-    }
-  ],
   "maven": [
+    {
+      "module": "dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:1.6.0",
+      "bytes": 35444,
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
     {
       "module": "com.simibubi.create:create-1.21.1:6.0.10-280",
       "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
@@ -56,7 +49,8 @@
     },
     {
       "module": "maven.modrinth:create-aeronautics:44pLdPGg",
-      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e"
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e",
+      "bytes": 33123131
     },
     {
       "module": "maven.modrinth:create-deep-seas:dbrSfQ3m",
@@ -79,5 +73,14 @@
       "sha256": "357e2668180e71e4ccc948f084bba723444161a428f0b3939acaad1503407ca9"
     }
   ],
-  "wrapperSha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172"
+  "wrapperSha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172",
+  "generated": {
+    "simulated": {
+      "file": "simulated-neoforge-1.21.1-1.3.2.jar",
+      "bytes": 6315366,
+      "sha256": "fdf9d250996a084b52fced3a5b0089e879a5cac05dc7bcf295ac1f4ebe5e2bff",
+      "sourceModule": "maven.modrinth:create-aeronautics:44pLdPGg",
+      "sourceEntry": "META-INF/jarjar/dev.simulated_team.simulated.simulated-neoforge-1.21.1-1.3.2.jar"
+    }
+  }
 }

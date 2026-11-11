@@ -53,7 +53,6 @@ final class LootToolControls {
                                 panel.doc(), panel.pos(), panel.mc.level.registryAccess())
                         : null;
         boolean generated = selectedBlock instanceof net.minecraft.world.RandomizableContainer;
-        if (eligible) panel.blockData();
         var catalog = LootTableNetworking.clientReply();
         if (catalog != null) panel.serverTables = catalog.tables();
         panel.sections.begin("tables", "section_loot_tables", true);
@@ -86,7 +85,10 @@ final class LootToolControls {
             panel.wrappedNote("loot_target_unavailable");
             return;
         }
-        if (!generated) return;
+        if (!generated) {
+            panel.blockData();
+            return;
+        }
         String[] table = {
             LootAssignments.read(panel.cached.configCopy()).stream()
                     .filter(v -> v.pos().equals(panel.pos()))
@@ -152,6 +154,7 @@ final class LootToolControls {
                                                                     Integer.parseInt(rolls[0])))));
                 };
         panel.sections.end();
+        panel.blockData();
     }
 
     void updateLootRows() {
