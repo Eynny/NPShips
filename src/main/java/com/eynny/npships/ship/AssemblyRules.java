@@ -83,10 +83,11 @@ public final class AssemblyRules {
             throws Exception {
         if (!level.getServer().isSameThread())
             throw new IllegalStateException("Assembly requires the server thread.");
-        if (!permitted.contains(point) || level.getBlockState(point).isAir())
+        BlockState pointState;
+        if (!permitted.contains(point) || (pointState = level.getBlockState(point)).isAir())
             throw new IllegalArgumentException(
                     "Assembly point has no block: " + point.toShortString());
-        if (AssemblyEligibility.excluded(level.getBlockState(point), level, point))
+        if (AssemblyEligibility.excluded(pointState, level, point))
             throw new IllegalArgumentException(
                     "Assembly point is not movable: " + point.toShortString());
         PatchAssembly.Plan chosen = null;
@@ -117,9 +118,10 @@ public final class AssemblyRules {
                         "No valid physical assembly at " + point.toShortString());
             var blocks = new LinkedHashSet<BlockPos>();
             for (var p : selected) {
+                BlockState state;
                 if (!permitted.contains(p)
-                        || level.getBlockState(p).isAir()
-                        || AssemblyEligibility.excluded(level.getBlockState(p), level, p))
+                        || (state = level.getBlockState(p)).isAir()
+                        || AssemblyEligibility.excluded(state, level, p))
                     throw new IllegalArgumentException(
                             "Assembly selected a block outside the permitted source or a non-movable block: "
                                     + p.toShortString());

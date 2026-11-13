@@ -1,8 +1,12 @@
 package com.eynny.npships.ship;
 
+import dev.ryanhcode.sable.Sable;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -30,12 +34,32 @@ public final class SpawnedMobCapture implements AutoCloseable {
         ACTIVE.set(this);
     }
 
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void restoreLoadedPassenger(EntityJoinLevelEvent event) {
+        if (!event.loadedFromDisk()
+                || !(event.getLevel() instanceof ServerLevel level)
+                || !(event.getEntity() instanceof Mob mob)
+                || mob.isRemoved()
+                || mob.level() != level
+                || !mob.getPersistentData().getBoolean(CREW)) return;
+        var vehicle = mob.getVehicle();
+        if (vehicle == null || vehicle.isRemoved() || vehicle.level() != level) return;
+        var body = Sable.HELPER.getContaining(vehicle);
+        if (!(body instanceof ServerSubLevel serverBody)
+                || serverBody.isRemoved()
+                || serverBody.getLevel() != level) return;
+        // Restore before section registration through normal riding callbacks. The vehicle and
+        // Sable retain offsets/projection, including loads that already have the correct position.
+        vehicle.positionRider(mob);
+    }
+
     @SubscribeEvent
     public static void joined(EntityJoinLevelEvent event) {
         if (!(event.getLevel() instanceof ServerLevel) || !(event.getEntity() instanceof Mob mob))
             return;
         var current = ACTIVE.get();
         if (current != null
+                && !event.loadedFromDisk()
                 && event.getLevel() == current.level
                 && current.bounds.contains(mob.position())) {
             mob.getPersistentData().putBoolean(CREW, true);

@@ -289,7 +289,10 @@ public final class StructureSegments {
             Plan plan) {
         validate(source, segments);
         if (plan.choices().isEmpty()) return new Composition(source.copy(), List.copyOf(baseLoot));
-        var result = source.copy();
+        // Runtime output discards stored variants; copy only the root fields it retains.
+        var result = new CompoundTag();
+        for (var key : source.getAllKeys())
+            if (!VARIANTS.equals(key)) result.put(key, source.get(key).copy());
         var palette = result.getList("palette", Tag.TAG_COMPOUND);
         var indices = new LinkedHashMap<CompoundTag, Integer>();
         for (int i = 0; i < palette.size(); i++) indices.putIfAbsent(palette.getCompound(i), i);

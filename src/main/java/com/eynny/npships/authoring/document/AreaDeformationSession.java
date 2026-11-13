@@ -115,6 +115,7 @@ public final class AreaDeformationSession {
                     throw new IllegalArgumentException(ex);
                 }
             }
+        // Neutral input must retain the captured-source priority of the visible generated shape.
         return AreaEditOperation.apply(
                         new AreaEditOperation.Request(
                                 state,
@@ -133,7 +134,7 @@ public final class AreaDeformationSession {
                                 ShapeDeformation.IDENTITY,
                                 flag(o, "generated", false),
                                 flag(o, "hollow", false),
-                                false,
+                                flag(o, "sticky", false),
                                 false,
                                 weights,
                                 o.has("seed") ? o.get("seed").getAsLong() : 1,
