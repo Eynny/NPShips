@@ -92,6 +92,13 @@ public final class ShipKineticRepair {
             PENDING.add(new PendingRepair(level, subLevel, delayTicks, repairs));
     }
 
+    /** Cancel only this captured native owner; unrelated repairs keep their deadlines. */
+    static void cancel(ServerLevel level, ServerSubLevel body) {
+        if (!level.getServer().isSameThread())
+            throw new IllegalStateException("Repair cancellation requires the server thread");
+        PENDING.removeIf(repair -> repair.level == level && repair.subLevel == body);
+    }
+
     @SubscribeEvent
     public static void onServerTick(ServerTickEvent.Post event) {
 
@@ -105,6 +112,11 @@ public final class ShipKineticRepair {
             PendingRepair repair = iterator.next();
 
             if (repair.level.getServer() != event.getServer()) continue;
+            if (!com.eynny.npships.integration.NativeBlockAccess.current(
+                    repair.level, repair.subLevel)) {
+                iterator.remove();
+                continue;
+            }
 
             repair.ticksRemaining--;
 
@@ -119,6 +131,9 @@ public final class ShipKineticRepair {
         if (due == null) return;
         for (var repair : due) {
             for (var callback : repair.repairs) {
+                // Earlier callbacks can synchronously remove this body or another due owner.
+                if (!com.eynny.npships.integration.NativeBlockAccess.current(
+                        repair.level, repair.subLevel)) break;
                 try {
                     callback.getValue().accept(repair.subLevel);
                 } catch (Exception failure) {

@@ -140,6 +140,11 @@ public final class NativeSourceOperations implements PatchSourceOperations {
     }
 
     public static <T> T capability(String type, Class<T> contract) {
+        if (type.equals("aeronautics_lifting_gas")
+                && contract == com.eynny.npships.authoring.patches.DetachedAssemblyGuard.class)
+            return contract.cast(
+                    new com.eynny.npships.integration.aeronautics
+                            .AeronauticsDetachedAssemblyGuard());
         if (contract == com.eynny.npships.authoring.patches.PatchSourcePass.class
                 && type.equals("computercraft_peripheral"))
             return contract.cast(

@@ -42,6 +42,7 @@ public final class ShipRotation {
             target.body().logicalPose().position().set(target.position());
             target.body().logicalPose().orientation().set(target.orientation());
             target.body().updateLastPose();
+            refreshBounds(target.body());
         }
         for (var id : ship.getSpawnedMobs()) {
             var mob = level.getEntity(id);
@@ -59,6 +60,18 @@ public final class ShipRotation {
             mob.setYBodyRot(bodyYaw);
             mob.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
         }
+    }
+
+    /** Publish teleport bounds before attachment and placement consumers run in this tick. */
+    static void refreshBounds(ServerSubLevel body) {
+        var bounds = body.getPlot().getBoundingBox();
+        // Native child mechanisms may own an empty plot. Do not transform its sentinel box.
+        if (bounds == null
+                || bounds.minX() > bounds.maxX()
+                || bounds.minY() > bounds.maxY()
+                || bounds.minZ() > bounds.maxZ()) return;
+        body.updateBoundingBox();
+        body.forceUpdateGlobalBounds();
     }
 
     public static float rotateYaw(float yaw, double radians) {

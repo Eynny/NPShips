@@ -118,6 +118,155 @@ public final class PatchedTemplate extends StructureTemplate implements AutoClos
     private boolean prepared;
     private boolean closed;
     private boolean nativePlacementStarted;
+    private CompoundTag directAssemblyInput;
+    private long directBytes;
+
+    /** Only the optional direct planner's own capacity admission may select native fallback. */
+    public static final class DirectAdmissionRefused extends RuntimeException {
+        private DirectAdmissionRefused(com.eynny.npships.resources.ResourceLimitException cause) {
+            super(cause);
+        }
+    }
+
+    private com.eynny.npships.api.patches.PatchPolicy assemblyPolicy;
+
+    /**
+     * Consumes the effective graph retained after preparation, under the template's resource
+     * charge. This first direct path admits plain blocks. Templates with runtime handlers or other
+     * native block behavior keep the existing transfer lifecycle.
+     */
+    public Map<BlockPos, net.minecraft.world.level.block.state.BlockState>
+            takeDirectAssemblyBlocks() {
+        requireOpen();
+        if (!prepared) throw new IllegalStateException("Direct planning requires preparation");
+        if (directAssemblyInput == null) return null;
+        var input = directAssemblyInput;
+        directAssemblyInput = null;
+        var blocks = input.getList("blocks", Tag.TAG_COMPOUND);
+        reserveDirectCapacity(Math.multiplyExact((long) blocks.size(), 6L * Long.BYTES));
+        var palette = input.getList("palette", Tag.TAG_COMPOUND);
+        if (input.contains("palettes", Tag.TAG_LIST)) return null;
+        var decoded = new HashMap<Integer, net.minecraft.world.level.block.state.BlockState>();
+        var result =
+                new LinkedHashMap<BlockPos, net.minecraft.world.level.block.state.BlockState>();
+        for (var value : blocks) {
+            var block = (CompoundTag) value;
+            if (block.contains("nbt")) return null;
+            var state =
+                    decoded.computeIfAbsent(
+                            block.getInt("state"),
+                            index ->
+                                    NbtUtils.readBlockState(
+                                            level.holderLookup(Registries.BLOCK),
+                                            palette.getCompound(index)));
+            if (state.isAir()) continue;
+            var position = SchematicPatches.blockPosition(block);
+            if (state.getBlock().getClass() != net.minecraft.world.level.block.Block.class
+                    || state.hasBlockEntity()
+                    || !state.getFluidState().isEmpty()
+                    || !state.isCollisionShapeFullBlock(
+                            net.minecraft.world.level.EmptyBlockGetter.INSTANCE, position)
+                    || !state.isSolidRender(
+                            net.minecraft.world.level.EmptyBlockGetter.INSTANCE, position))
+                return null;
+            if (result.put(position, state) != null)
+                throw new IllegalStateException("Duplicate prepared direct block: " + position);
+        }
+        return Collections.unmodifiableMap(result);
+    }
+
+    /**
+     * Admit optional direct scratch before allocation; its session releases the charge after use.
+     */
+    public void reserveDirectCapacity(long bytes) {
+        requireOpen();
+        if (!prepared) throw new IllegalStateException("Direct admission requires preparation");
+        long next = Math.addExact(directBytes, bytes);
+        try {
+            capabilityResources().reserveCapacity(bytes);
+        } catch (com.eynny.npships.resources.ResourceLimitException limit) {
+            throw new DirectAdmissionRefused(limit);
+        }
+        directBytes = next;
+    }
+
+    /** The caller first drops its private direct-plan maps; prepared/native charges stay owned. */
+    public void releaseDirectPlanning() {
+        // A reentrant provider may retire the template before its admitted session releases
+        // scratch.
+        directAssemblyInput = null;
+        if (directBytes == 0) return;
+        capabilityResources().release(directBytes);
+        directBytes = 0;
+    }
+
+    public com.eynny.npships.api.patches.PatchPolicy assemblyPolicy() {
+        requireOpen();
+        if (!prepared) throw new IllegalStateException("Assembly policy requires preparation");
+        return assemblyPolicy;
+    }
+
+    private boolean directStagesSupported() {
+        for (var stage : com.eynny.npships.api.patches.PatchStage.values()) {
+            boolean detached =
+                    switch (stage) {
+                        case INPUT_VALIDATION,
+                                        PREPARE,
+                                        PREPARE_BLOCK,
+                                        PREPARE_WIRES,
+                                        PREPARE_REFERENCES,
+                                        PREPARE_FINALIZE,
+                                        PREPARE_NATIVE_DATA ->
+                                true;
+                        default -> false;
+                    };
+            if (!detached && externalHandlers.has(stage)) return false;
+        }
+        return true;
+    }
+
+    /** Maps authored cells to their final plot coordinates after direct population. */
+    public void directBodyPlaced(
+            BlockPos anchorLocal, Collection<BlockPos> membersLocal, ServerSubLevel body) {
+        requireOpen();
+        if (!prepared || !nativePlacementStarted)
+            throw new IllegalStateException("Direct mapping requires active native placement");
+        physicalIds.add(body.getUniqueId());
+        var offset = body.getPlot().getCenterBlock().subtract(anchorLocal);
+        for (var local : membersLocal) {
+            if (!tracked.contains(local)) continue;
+            var next = local.offset(offset);
+            if (placementData != null) placementData.transferred(local, next, body);
+            moved.put(local, next);
+        }
+    }
+
+    /** One placement boundary shared by native templates and directly populated native plots. */
+    public AutoCloseable beginNativePlacement() {
+        requireOpen();
+        if (entityPlacement == null) {
+            if (!entityPatches.isEmpty())
+                throw new IllegalStateException("Entity patches require preparation");
+            entityPlacement = new EntityPlacementScope(level);
+        }
+        var scope = entityPlacement.open();
+        try {
+            patchStage(com.eynny.npships.api.patches.PatchStage.BEFORE_NATIVE_PLACEMENT);
+            if (!nativePlacementStarted) {
+                computerFiles.commit();
+                nativePlacementStarted = true;
+            }
+            return scope;
+        } catch (RuntimeException | Error error) {
+            try {
+                scope.close();
+            } catch (Exception cleanup) {
+                error.addSuppressed(cleanup);
+            }
+            throw error;
+        }
+    }
+
     final ComputerFiles computerFiles = new ComputerFiles();
     private final ExternalPatchHandlers externalHandlers = new ExternalPatchHandlers();
     private BuiltinPatchState integrationState;
@@ -171,6 +320,7 @@ public final class PatchedTemplate extends StructureTemplate implements AutoClos
                             } finally {
                                 if (placementData != null) placementData.close();
                                 preparation = null;
+                                directAssemblyInput = null;
                                 authorInputs.clear();
                                 if (capabilityResources != null) capabilityResources.retire();
                             }
@@ -331,6 +481,7 @@ public final class PatchedTemplate extends StructureTemplate implements AutoClos
             PatchedTemplate.this.origin = origin;
             PatchedTemplate.this.level = level;
             var patchPolicy = com.eynny.npships.config.NPShipsRuntimeConfig.patchPolicy();
+            assemblyPolicy = patchPolicy;
             PatchInstances.validateDocument(sourceDoc);
             integrationState = new BuiltinPatchState(PatchedTemplate.this);
             EntityPatches.validate(sourceDoc, true);
@@ -430,6 +581,12 @@ public final class PatchedTemplate extends StructureTemplate implements AutoClos
             load(level.registryAccess().lookupOrThrow(Registries.BLOCK), copy);
             if (preparedData != null) preparedData.preparedLoaded();
             patchStage(com.eynny.npships.api.patches.PatchStage.TEMPLATE_LOADED);
+            // Keep the already charged effective graph only for the admitted direct pilot.
+            // Runtime callbacks after load could change native state independently of this input.
+            if (!sourceDoc.assemblyPoints().isEmpty()
+                    && directStagesSupported()
+                    && copy.getList("entities", Tag.TAG_COMPOUND).isEmpty())
+                directAssemblyInput = copy;
             integrationState.releasePreparedInput();
         }
     }
@@ -612,19 +769,10 @@ public final class PatchedTemplate extends StructureTemplate implements AutoClos
             net.minecraft.util.RandomSource random,
             int flags) {
         requireOpen();
-        if (entityPlacement == null) {
-            if (!entityPatches.isEmpty())
-                throw new IllegalStateException("Entity patches require preparation");
-            entityPlacement = new EntityPlacementScope(world.getLevel());
-        }
-        try (var scope = entityPlacement.open()) {
-            // Native block/entity callbacks can observe new IDs before this call returns.
-            // Retain their files even if placement subsequently returns false or fails partially.
-            patchStage(com.eynny.npships.api.patches.PatchStage.BEFORE_NATIVE_PLACEMENT);
-            if (!nativePlacementStarted) {
-                computerFiles.commit();
-                nativePlacementStarted = true;
-            }
+        if (level == null) level = world.getLevel();
+        if (world.getLevel() != level)
+            throw new IllegalStateException("Native placement changed the prepared level");
+        try (var scope = beginNativePlacement()) {
             return super.placeInWorld(world, at, seed, settings, random, flags);
         } catch (RuntimeException | Error error) {
             throw error;

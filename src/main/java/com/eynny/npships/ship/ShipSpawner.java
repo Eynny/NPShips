@@ -437,292 +437,306 @@ public final class ShipSpawner {
                                 e);
                     }
                 }
-                // A precommit plan records known owned traversal. No quota can interrupt the
-                // subsequent mutation/finally sequence, and native calls remain atomic.
-                var work =
-                        template instanceof com.eynny.npships.authoring.patches.PatchedTemplate p
-                                ? p.work()
-                                : null;
-                if (work != null)
-                    work.record(
-                            ResourceWorkMeter.Family.CLEAR_CELL_PLAN,
-                            Math.multiplyExact(
-                                    Math.multiplyExact((long) size.getX(), size.getY()),
-                                    size.getZ()));
-                com.eynny.npships.integration.events.NPShipsEventBridge.beforePlacement(
-                        level, structureId, origin);
-                // Trusted callbacks may change availability; refuse before our destructive phase.
-                requirePlacementReady(level, origin, size);
-                // Cover partial clearing failures as well as placement/assembly failures.
-                try {
-                    clearArea(level, origin, size);
-
-                    /*
-                     * 4. Place structure into the real world.
-                     */
-                    final boolean placed;
-                    final java.util.List<java.util.UUID> spawnedMobs;
-                    long staticToken =
-                            timing == null ? 0 : timing.begin(SpawnTimingProfiler.Stage.STATIC);
+                try (var direct = prepareDirect(template, level, origin, size)) {
+                    // A precommit plan records known owned traversal. No quota can interrupt the
+                    // subsequent mutation/finally sequence, and native calls remain atomic.
+                    var work =
+                            template
+                                            instanceof
+                                            com.eynny.npships.authoring.patches.PatchedTemplate p
+                                    ? p.work()
+                                    : null;
+                    if (work != null)
+                        work.record(
+                                ResourceWorkMeter.Family.CLEAR_CELL_PLAN,
+                                Math.multiplyExact(
+                                        Math.multiplyExact((long) size.getX(), size.getY()),
+                                        size.getZ()));
+                    com.eynny.npships.integration.events.NPShipsEventBridge.beforePlacement(
+                            level, structureId, origin);
+                    // Trusted callbacks may change availability; refuse before our destructive
+                    // phase.
+                    requirePlacementReady(level, origin, size);
+                    boolean useDirect = direct != null && direct.environmentReady();
+                    if (direct != null && !useDirect) direct.close();
+                    boolean directSucceeded = false;
+                    // Cover partial clearing failures as well as placement/assembly failures.
                     try {
-                        try (var capture =
-                                new SpawnedMobCapture(
+                        clearArea(level, origin, size);
+                        if (useDirect) {
+                            long nativeToken =
+                                    timing == null
+                                            ? 0
+                                            : timing.begin(SpawnTimingProfiler.Stage.ASSEMBLY);
+                            final List<UUID> ids;
+                            try {
+                                if (work != null)
+                                    work.record(ResourceWorkMeter.Family.ASSEMBLY_CALL, 1);
+                                ids = direct.place();
+                            } catch (Exception error) {
+                                throw new IllegalStateException(
+                                        "Direct native placement failed for " + structureId, error);
+                            } finally {
+                                if (timing != null) timing.end(nativeToken);
+                            }
+                            var container = SubLevelContainer.getContainer(level);
+                            for (var id : ids) {
+                                var body = container.getSubLevel(id);
+                                if (!(body instanceof ServerSubLevel serverBody)
+                                        || body.isRemoved())
+                                    throw new IllegalStateException(
+                                            "Direct native body disappeared: " + id);
+                                registerBody(level, template, serverBody);
+                            }
+                            finishPatches(
+                                    template,
+                                    level,
+                                    structureId,
+                                    origin,
+                                    size,
+                                    ids,
+                                    List.of(),
+                                    yaw);
+                            cleanupWorldBlockEntities(level, origin, size);
+                            var result = physicalResult(level, structureId, origin, ids, List.of());
+                            directSucceeded = true;
+                            return result;
+                        }
+
+                        /*
+                         * 4. Place structure into the real world.
+                         */
+                        final boolean placed;
+                        final java.util.List<java.util.UUID> spawnedMobs;
+                        long staticToken =
+                                timing == null ? 0 : timing.begin(SpawnTimingProfiler.Stage.STATIC);
+                        try {
+                            try (var capture =
+                                    new SpawnedMobCapture(
+                                            level,
+                                            new net.minecraft.world.phys.AABB(
+                                                    net.minecraft.world.phys.Vec3.atLowerCornerOf(
+                                                            origin),
+                                                    net.minecraft.world.phys.Vec3.atLowerCornerOf(
+                                                            origin.offset(size))))) {
+                                if (work != null)
+                                    work.record(ResourceWorkMeter.Family.STATIC_PLACEMENT_CALL, 1);
+                                placed =
+                                        template.placeInWorld(
+                                                level,
+                                                origin,
+                                                origin,
+                                                settings,
+                                                level.getRandom(),
+                                                Block.UPDATE_ALL);
+                                spawnedMobs = capture.ids();
+                            }
+
+                        } finally {
+                            if (timing != null) timing.end(staticToken);
+                        }
+
+                        if (!placed) {
+                            throw new IllegalStateException(
+                                    "Failed placing structure: " + structureId);
+                        }
+
+                        /*
+                         * 5. Read the authored assembly points
+                         *    inside the schematic.
+                         *
+                         *    Collect them BEFORE starting any assembly.
+                         */
+                        if (template
+                                instanceof
+                                com.eynny.npships.authoring.patches.PatchedTemplate patched) {
+                            try {
+                                patched.beforeAssembly(level);
+                            } catch (Exception e) {
+                                throw new IllegalStateException(
+                                        "Pre-assembly patches failed for "
+                                                + structureId
+                                                + ": "
+                                                + e.getMessage(),
+                                        e);
+                            }
+                        }
+
+                        final List<BlockPos> assemblyPoints = markers;
+
+                        if (assemblyPoints.isEmpty()) {
+                            finishPatches(
+                                    template,
+                                    level,
+                                    structureId,
+                                    origin,
+                                    size,
+                                    List.of(),
+                                    spawnedMobs,
+                                    yaw);
+                            if (template
+                                            instanceof
+                                            com.eynny.npships.authoring.patches.PatchedTemplate
+                                                            patched
+                                    && !patched.physicalIds().isEmpty())
+                                return new Ship(
+                                        patched.physicalIds().getFirst(),
+                                        structureId,
+                                        origin,
+                                        patched.physicalIds(),
+                                        spawnedMobs);
+                            return null;
+                        }
+
+                        /*
+                         * Hard safety limit.
+                         */
+                        final int MAX_ASSEMBLY_POINTS = 128;
+
+                        if (assemblyPoints.size() > MAX_ASSEMBLY_POINTS) {
+
+                            throw new IllegalStateException(
+                                    "Too many assembly points in structure "
+                                            + structureId
+                                            + ": "
+                                            + assemblyPoints.size()
+                                            + " (maximum "
+                                            + MAX_ASSEMBLY_POINTS
+                                            + ")");
+                        }
+
+                        /*
+                         * 6. Process assembly points one by one.
+                         */
+                        int assembledCount = 0;
+                        final List<UUID> physicalIds = new ArrayList<>();
+
+                        try (var glue =
+                                new AssemblyGlueSnapshot(
                                         level,
                                         new net.minecraft.world.phys.AABB(
                                                 net.minecraft.world.phys.Vec3.atLowerCornerOf(
                                                         origin),
                                                 net.minecraft.world.phys.Vec3.atLowerCornerOf(
                                                         origin.offset(size))))) {
-                            if (work != null)
-                                work.record(ResourceWorkMeter.Family.STATIC_PLACEMENT_CALL, 1);
-                            placed =
-                                    template.placeInWorld(
-                                            level,
-                                            origin,
-                                            origin,
-                                            settings,
-                                            level.getRandom(),
-                                            Block.UPDATE_ALL);
-                            spawnedMobs = capture.ids();
+                            for (final BlockPos assemblyPoint : assemblyPoints) {
+
+                                /*
+                                 * A previous point may already have assembled this component.
+                                 * Process each physical component only once.
+                                 */
+                                if (coveredByMarker.contains(assemblyPoint)) continue;
+
+                                /*
+                                 * Snapshot currently existing SubLevels.
+                                 */
+                                glue.restore();
+                                final Set<ServerSubLevel> beforeSubLevels = getSubLevels(level);
+
+                                /*
+                                 * Assemble exactly one point through the host physics boundary.
+                                 */
+                                try (var patchScope =
+                                        com.eynny.npships.authoring.patches.PatchedTemplate.observe(
+                                                template)) {
+                                    long nativeToken =
+                                            timing == null
+                                                    ? 0
+                                                    : timing.begin(
+                                                            SpawnTimingProfiler.Stage.ASSEMBLY);
+                                    try {
+                                        if (work != null)
+                                            work.record(ResourceWorkMeter.Family.ASSEMBLY_CALL, 1);
+                                        coveredByMarker.addAll(
+                                                AssemblyRules.assemble(
+                                                        level,
+                                                        assemblyPoint,
+                                                        permitted,
+                                                        importedGroups.get(assemblyPoint)));
+                                    } finally {
+                                        if (timing != null) timing.end(nativeToken);
+                                    }
+                                }
+
+                                /*
+                                 * Find the bodies created by this assembly.
+                                 */
+                                final var createdSubLevels = getSubLevels(level);
+                                createdSubLevels.removeAll(beforeSubLevels);
+                                if (createdSubLevels.isEmpty()) {
+                                    throw new IllegalStateException(
+                                            "Physics assembly created no new ServerSubLevel at "
+                                                    + assemblyPoint);
+                                }
+                                for (final ServerSubLevel shipSubLevel : createdSubLevels) {
+                                    registerBody(level, template, shipSubLevel);
+                                    assembledCount++;
+                                    physicalIds.add(shipSubLevel.getUniqueId());
+
+                                    /*
+                                     * Retain all authored blocks, including native assembly devices, in
+                                     * the newly created physical structure.
+                                     */
+
+                                }
+                            }
                         }
 
-                    } finally {
-                        if (timing != null) timing.end(staticToken);
-                    }
-
-                    if (!placed) {
-                        throw new IllegalStateException("Failed placing structure: " + structureId);
-                    }
-
-                    /*
-                     * 5. Read the authored assembly points
-                     *    inside the schematic.
-                     *
-                     *    Collect them BEFORE starting any assembly.
-                     */
-                    if (template
-                            instanceof
-                            com.eynny.npships.authoring.patches.PatchedTemplate patched) {
-                        try {
-                            patched.beforeAssembly(level);
-                        } catch (Exception e) {
-                            throw new IllegalStateException(
-                                    "Pre-assembly patches failed for "
-                                            + structureId
-                                            + ": "
-                                            + e.getMessage(),
-                                    e);
-                        }
-                    }
-
-                    final List<BlockPos> assemblyPoints = markers;
-
-                    if (assemblyPoints.isEmpty()) {
+                        /*
+                         * 7. All assembly points have now been processed.
+                         *
+                         * Only NOW clean up leftover BlockEntities
+                         * in the original world.
+                         */
                         finishPatches(
                                 template,
                                 level,
                                 structureId,
                                 origin,
                                 size,
-                                List.of(),
+                                physicalIds,
                                 spawnedMobs,
                                 yaw);
-                        if (template
-                                        instanceof
-                                        com.eynny.npships.authoring.patches.PatchedTemplate patched
-                                && !patched.physicalIds().isEmpty())
-                            return new Ship(
-                                    patched.physicalIds().getFirst(),
-                                    structureId,
-                                    origin,
-                                    patched.physicalIds(),
-                                    spawnedMobs);
-                        return null;
-                    }
+                        cleanupWorldBlockEntities(level, origin, size);
 
-                    /*
-                     * Hard safety limit.
-                     */
-                    final int MAX_ASSEMBLY_POINTS = 128;
+                        /*
+                         * 8. Safety check.
+                         */
+                        if (assembledCount == 0) {
 
-                    if (assemblyPoints.size() > MAX_ASSEMBLY_POINTS) {
-
-                        throw new IllegalStateException(
-                                "Too many assembly points in structure "
-                                        + structureId
-                                        + ": "
-                                        + assemblyPoints.size()
-                                        + " (maximum "
-                                        + MAX_ASSEMBLY_POINTS
-                                        + ")");
-                    }
-
-                    /*
-                     * 6. Process assembly points one by one.
-                     */
-                    int assembledCount = 0;
-                    final List<UUID> physicalIds = new ArrayList<>();
-
-                    try (var glue =
-                            new AssemblyGlueSnapshot(
-                                    level,
-                                    new net.minecraft.world.phys.AABB(
-                                            net.minecraft.world.phys.Vec3.atLowerCornerOf(origin),
-                                            net.minecraft.world.phys.Vec3.atLowerCornerOf(
-                                                    origin.offset(size))))) {
-                        for (final BlockPos assemblyPoint : assemblyPoints) {
-
-                            /*
-                             * A previous point may already have assembled this component.
-                             * Process each physical component only once.
-                             */
-                            if (coveredByMarker.contains(assemblyPoint)) continue;
-
-                            /*
-                             * Snapshot currently existing SubLevels.
-                             */
-                            glue.restore();
-                            final Set<ServerSubLevel> beforeSubLevels = getSubLevels(level);
-
-                            /*
-                             * Assemble exactly one point through the host physics boundary.
-                             */
-                            try (var patchScope =
-                                    com.eynny.npships.authoring.patches.PatchedTemplate.observe(
-                                            template)) {
-                                long nativeToken =
-                                        timing == null
-                                                ? 0
-                                                : timing.begin(SpawnTimingProfiler.Stage.ASSEMBLY);
-                                try {
-                                    if (work != null)
-                                        work.record(ResourceWorkMeter.Family.ASSEMBLY_CALL, 1);
-                                    coveredByMarker.addAll(
-                                            AssemblyRules.assemble(
-                                                    level,
-                                                    assemblyPoint,
-                                                    permitted,
-                                                    importedGroups.get(assemblyPoint)));
-                                } finally {
-                                    if (timing != null) timing.end(nativeToken);
-                                }
-                            }
-
-                            /*
-                             * Find the bodies created by this assembly.
-                             */
-                            final var createdSubLevels = getSubLevels(level);
-                            createdSubLevels.removeAll(beforeSubLevels);
-                            if (createdSubLevels.isEmpty()) {
-                                throw new IllegalStateException(
-                                        "Physics assembly created no new ServerSubLevel at "
-                                                + assemblyPoint);
-                            }
-                            for (final ServerSubLevel shipSubLevel : createdSubLevels) {
-                                NPShipsLifecycleManager.track(level, shipSubLevel.getUniqueId());
-
-                                NaturalSpawnPhysicalChunkManager.track(shipSubLevel);
-
-                                assembledCount++;
-                                physicalIds.add(shipSubLevel.getUniqueId());
-
-                                /*
-                                 * Schedule Create kinetic repair.
-                                 */
-                                if (template
-                                        instanceof
-                                        com.eynny.npships.authoring.patches.PatchedTemplate
-                                                        preparedTemplate)
-                                    ShipKineticRepair.schedule(
-                                            level,
-                                            shipSubLevel,
-                                            5,
-                                            preparedTemplate.delayedRepairs());
-                                else ShipKineticRepair.schedule(level, shipSubLevel, 5);
-
-                                /*
-                                 * Retain all authored blocks, including native assembly devices, in
-                                 * the newly created physical structure.
-                                 */
-
-                            }
+                            throw new IllegalStateException(
+                                    "No assembly points were successfully processed "
+                                            + "for structure: "
+                                            + structureId);
                         }
+
+                        /*
+                         * 9. Retain the actual physical IDs; keep chat feedback separate from body identity.
+                         */
+                        if (template
+                                instanceof
+                                com.eynny.npships.authoring.patches.PatchedTemplate patched)
+                            for (var id : patched.physicalIds())
+                                if (!physicalIds.contains(id)) physicalIds.add(id);
+                        return physicalResult(level, structureId, origin, physicalIds, spawnedMobs);
+
+                    } finally {
+
+                        /*
+                         * IMPORTANT:
+                         *
+                         * If the structure's inside rule is FLUID,
+                         * restore the original fluid volume now that
+                         * assembly processing has finished.
+                         *
+                         * This also runs if assembly throws an exception,
+                         * preventing permanent destruction of the fluid
+                         * volume that existed before spawning.
+                         */
+                        restoreFluid(level, origin, size, fluidRestore);
+                        // A failed fluid-finally is still a failed direct operation.
+                        if (directSucceeded) direct.commit();
                     }
-
-                    /*
-                     * 7. All assembly points have now been processed.
-                     *
-                     * Only NOW clean up leftover BlockEntities
-                     * in the original world.
-                     */
-                    finishPatches(
-                            template,
-                            level,
-                            structureId,
-                            origin,
-                            size,
-                            physicalIds,
-                            spawnedMobs,
-                            yaw);
-                    cleanupWorldBlockEntities(level, origin, size);
-
-                    /*
-                     * 8. Safety check.
-                     */
-                    if (assembledCount == 0) {
-
-                        throw new IllegalStateException(
-                                "No assembly points were successfully processed "
-                                        + "for structure: "
-                                        + structureId);
-                    }
-
-                    /*
-                     * 9. Retain the actual physical IDs; keep chat feedback separate from body identity.
-                     */
-                    if (template
-                            instanceof com.eynny.npships.authoring.patches.PatchedTemplate patched)
-                        for (var id : patched.physicalIds())
-                            if (!physicalIds.contains(id)) physicalIds.add(id);
-                    final UUID shipId = physicalIds.getFirst();
-
-                    var operation =
-                            com.eynny.npships.integration.events.NPShipsEventBridge
-                                    .currentOperation();
-                    // Commands and automatic attempts own their terminal feedback.
-                    if (operation == null
-                            || operation.route()
-                                            != com.eynny.npships.api.events.NPShipsLifecycleEvent
-                                                    .Route.AUTOMATIC_SEARCH
-                                    && operation.route()
-                                            != com.eynny.npships.api.events.NPShipsLifecycleEvent
-                                                    .Route.DIRECT_COMMAND)
-                        level.getServer()
-                                .getPlayerList()
-                                .broadcastSystemMessage(
-                                        Component.translatable(
-                                                "npships.spawn.placed", structureId.toString()),
-                                        false);
-
-                    /*
-                     * 10. Return NPShips ship.
-                     */
-                    return new Ship(shipId, structureId, origin, physicalIds, spawnedMobs);
-
-                } finally {
-
-                    /*
-                     * IMPORTANT:
-                     *
-                     * If the structure's inside rule is FLUID,
-                     * restore the original fluid volume now that
-                     * assembly processing has finished.
-                     *
-                     * This also runs if assembly throws an exception,
-                     * preventing permanent destruction of the fluid
-                     * volume that existed before spawning.
-                     */
-                    restoreFluid(level, origin, size, fluidRestore);
                 }
             } finally {
                 if (template instanceof com.eynny.npships.authoring.patches.PatchedTemplate patched)
@@ -733,6 +747,51 @@ public final class ShipSpawner {
 
             if (spawnTiming != null) spawnTiming.end(spawnToken);
         }
+    }
+
+    private static DirectAssemblySession prepareDirect(
+            StructureTemplate template, ServerLevel level, BlockPos origin, BlockPos size) {
+        if (!(template instanceof com.eynny.npships.authoring.patches.PatchedTemplate patched))
+            return null;
+        try {
+            return DirectAssemblySession.prepare(level, patched, origin, size);
+        } catch (RuntimeException error) {
+            throw error;
+        } catch (Exception error) {
+            throw new IllegalArgumentException("Detached native assembly planning failed", error);
+        }
+    }
+
+    private static void registerBody(
+            ServerLevel level, StructureTemplate template, ServerSubLevel body) {
+        NPShipsLifecycleManager.track(level, body.getUniqueId());
+        NaturalSpawnPhysicalChunkManager.track(body);
+        if (template instanceof com.eynny.npships.authoring.patches.PatchedTemplate prepared)
+            ShipKineticRepair.schedule(level, body, 5, prepared.delayedRepairs());
+        else ShipKineticRepair.schedule(level, body, 5);
+    }
+
+    private static Ship physicalResult(
+            ServerLevel level,
+            ResourceLocation structureId,
+            BlockPos origin,
+            List<UUID> physicalIds,
+            List<UUID> spawnedMobs) {
+        var operation = com.eynny.npships.integration.events.NPShipsEventBridge.currentOperation();
+        // Commands and automatic attempts own their terminal feedback.
+        if (operation == null
+                || operation.route()
+                                != com.eynny.npships.api.events.NPShipsLifecycleEvent.Route
+                                        .AUTOMATIC_SEARCH
+                        && operation.route()
+                                != com.eynny.npships.api.events.NPShipsLifecycleEvent.Route
+                                        .DIRECT_COMMAND)
+            level.getServer()
+                    .getPlayerList()
+                    .broadcastSystemMessage(
+                            Component.translatable("npships.spawn.placed", structureId.toString()),
+                            false);
+        return new Ship(physicalIds.getFirst(), structureId, origin, physicalIds, spawnedMobs);
     }
 
     /** Existing metadata only: a chunk object is insufficient for native entity/glue queries. */
@@ -786,6 +845,7 @@ public final class ShipSpawner {
                         if (body == null || body.isRemoved())
                             throw new IllegalStateException("Missing assembled body: " + bodyId);
                         body.updateMergedMassData(1);
+                        if (yaw == 0) ShipRotation.refreshBounds(body);
                     }
                     if (yaw != 0)
                         ShipRotation.rotate(
