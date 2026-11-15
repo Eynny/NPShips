@@ -1,0 +1,23 @@
+name: Build
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify source inputs
+        run: python3 scripts/VerifySourceInputs.py
+      - name: Compile mod and API
+        run: bash gradlew build :npships-api:build --no-parallel --console=plain

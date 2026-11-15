@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BTB",
+    " G ",
+    "III"
+  ],
+  "key": {
+    "B": {
+      "item": "create:brass_casing"
+    },
+    "T": {
+      "item": "create:electron_tube"
+    },
+    "G": {
+      "item": "minecraft:glow_ink_sac"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "npships:claim_block",
+    "count": 1
+  }
+}

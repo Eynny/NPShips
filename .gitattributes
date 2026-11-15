@@ -1,0 +1,17 @@
+# Preserve the reviewed source bytes; the shell wrapper must use LF.
+* -text
+/gradlew text eol=lf
+/gradle/wrapper/gradle-wrapper.jar binary
+*.png binary
+*.ogg binary
+src/generated/**/.cache/* text eol=lf
+src/generated/**/*.json text eol=lf
+
+# Local state never belongs in a source export.
+/.gradle/** export-ignore
+/build/** export-ignore
+/run/** export-ignore
+/run-*/** export-ignore
+/libs/** export-ignore
+/.idea/** export-ignore
+/.vscode/** export-ignore

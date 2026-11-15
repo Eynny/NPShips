@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P Q",
+    " CC",
+    "SIS"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "Q": {
+      "item": "create:schematic_and_quill"
+    },
+    "C": {
+      "item": "create:brass_table_cloth"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "npships:schematic_editor",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+Distribution terms for this addon
+
+The addon author applies the MIT License in LICENSE to their own contributions
+and other material they are entitled to distribute under those terms.
+
+Separately licensed material retains its own terms. Refer to the accompanying
+license and credit files for the terms that apply to that material.
+The MIT License does not replace or override those separate terms.
