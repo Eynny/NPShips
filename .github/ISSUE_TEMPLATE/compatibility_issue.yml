@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         A compatibility report is a reproduction request, not a promise to support
-        every integration. English or Russian is welcome.
+        every integration.
         Remove credentials, tokens, private paths, account data and sensitive world
         information from attachments. Do not upload private worlds, schematics or
         third-party binaries.
