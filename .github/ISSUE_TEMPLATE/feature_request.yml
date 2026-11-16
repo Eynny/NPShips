@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Suggestions are reviewed in context; submission does not promise
-        implementation or a response time. English or Russian is welcome.
+        implementation or a response time.
         Do not include credentials, private paths, account data or sensitive world
         information. Share only examples you have permission to disclose.
   - type: textarea
