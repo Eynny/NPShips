@@ -5,7 +5,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        English or Russian is welcome.
         Before attaching logs or screenshots, remove credentials, tokens, private
         paths, account data and sensitive world information. Do not upload a private
         world or schematic. Share only material you have permission to disclose.
